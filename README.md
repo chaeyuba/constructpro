@@ -1,42 +1,41 @@
 # Construction Project Management Suite
 
-Initial React + TypeScript scaffold for a construction project management tool with:
+React + TypeScript construction project management app for planning, quantity takeoff, costing, scheduling, procurement tracking, reporting, and AI-assisted review.
 
-- sidebar-based app shell
-- project setup module
-- dashboard module
-- schedule module with task register and simple Gantt-style timeline
-- BOQ module with dimension-based quantity calculations
-- BOM & cost module with derived material rollups
-- typed domain model
-- local persistence through a `window.storage` adapter with `localStorage` fallback
+## Current Modules
 
-## Current Structure
+- Smart Compute wizard for generating BOQ, BOM, and schedule baselines
+- Dashboard with progress, budget, and procurement snapshots
+- Schedule tab with Gantt-style visualization and task progress sliders
+- BOQ register for quantity review
+- BOM & Cost tab with cost rollups
+- Procurement tracker for ordered vs delivered materials
+- Reports tab for cash-flow and benchmark views
+- AI assistant wired for a backend proxy endpoint
 
-- `src/App.tsx`: top-level app state, navigation, and module switching
-- `src/types/domain.ts`: project, task, BOQ, BOM, procurement, alert, and app state types
-- `src/lib/storage.ts`: persistence layer
-- `src/lib/calculations.ts`: derived metrics and schedule helpers
-- `src/features/project/ProjectSetupTab.tsx`: project baseline form
-- `src/features/dashboard/DashboardTab.tsx`: executive summary cards and signals
-- `src/features/schedule/ScheduleTab.tsx`: task form, timeline, and task table
-- `src/features/boq/BoqTab.tsx`: quantity takeoff form and BOQ register
-- `src/features/bom/BomCostTab.tsx`: material aggregation and cost breakdown
+## Stack
 
-## Running It
+- React 18
+- TypeScript
+- Vite
+- Recharts
 
-This workspace currently does not have a package manager configured on PATH, so dependencies were not installed in-session.
-
-Once `npm` is available, run:
+## Run Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Next Recommended Build Steps
+## Build
 
-1. Add editable BOM overrides and supplier-specific rates.
-2. Add procurement records and delivery alerts.
-3. Add import/export utilities and report-ready summaries.
-4. Add AI draft-generation and BOQ-to-BOM suggestion workflows.
+```bash
+npm run build
+```
+
+The local workspace build has been verified successfully with Vite.
+
+## Notes
+
+- The AI assistant is configured to call a backend proxy endpoint instead of exposing provider secrets in the browser.
+- The app supports a `window.storage` API when available and falls back to `localStorage`.
